@@ -1,0 +1,66 @@
+/* a simple example of how to use ambrals froward function */
+
+#include "ambralsfor.c"
+#include <stdio.h>
+#include <stdlib.h>
+
+main(int argc, char* argv[])
+{
+  if( argc > 1 ) 
+    { float szen;
+      float vzen;
+      float relaz;
+      float 
+      szen = atof(argv[1]);
+      printf("The argument provided for szen is: %f\n", szen);
+      vzen = atof(argv[2]);
+      printf("The argument provided for vzen is: %f\n", vzen);
+      relaz = atof(argv[3]);
+      printf("The argument provided for relaz is: %f\n", relaz);
+    }
+
+  geom_t geom;
+  param_t params;
+
+  float ref; /* save bidirectional reflectance */
+
+  /* set bi-directional observation geometry parameters */
+  /* which will be provided by you in whatever input format */
+  /* you prefer --- in this single pixel example they are */
+  /* just hardcoded */
+
+  geom.szen=45.0;
+  geom.vzen=45.0;
+  geom.relaz=0.0;
+
+  /* set the three weights of Ambrals model */
+  /* which will be provided by us as a flat */ 
+  /* cartesian lat/lon file of floats for each */
+  /* ROI ----- in this example they are just hardcoded */
+
+  params.iso=0.12089;
+  params.vol=0.0;
+  params.geo=0.063989;
+
+  ref=forward(geom,params); /* call ambrals forward model */
+
+  printf("%f\n",ref);
+
+  geom.szen=45.0;
+  geom.vzen=0.0;
+  geom.relaz=0.0;
+  ref=forward(geom,params); /* call ambrals forward model */
+
+  printf("%f\n",ref);
+
+  geom.szen=45.0;
+  geom.vzen=45.0;
+  geom.relaz=180.0;
+  ref=forward(geom,params); /* call ambrals forward model */
+
+  printf("%f\n",ref);
+
+
+}
+
+
