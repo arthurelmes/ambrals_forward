@@ -21,13 +21,14 @@ main(int argc, char* argv[])
       vol = atof(argv[5]);
       geo = atof(argv[6]);
 
+      /*
       printf("The argument provided for szen is: %f\n", szen);
       printf("The argument provided for vzen is: %f\n", vzen);      
       printf("The argument provided for relaz is: %f\n", relaz);
       printf("The argument provided for iso is: %f\n", iso);
       printf("The argument provided for vol is: %f\n", vol);      
       printf("The argument provided for geo is: %f\n", geo);
-
+      */
   
 
   geom_t geom;
