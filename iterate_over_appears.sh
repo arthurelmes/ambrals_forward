@@ -1,7 +1,7 @@
 #!/bin/bash
 
 csv_in='/home/arthur/Dropbox/projects/ambrals_modeling/BRDF-Reflectances-Point-Samples-MCD43A1-006-results_subset.csv'
-csv_out='/home/arthur/Dropbox/projects/ambrals_modeling/BRDF_LUT_band_2_test.csv'
+csv_out='/home/arthur/Dropbox/projects/ambrals_modeling/BRDF_LUT.csv'
 
 if [ -f $csv_out ];
 then
